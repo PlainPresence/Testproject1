@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Miznah!</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <h1>Happy Birthday Miznah! 🎂🎉</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">To the Dumbest girl in the universe 💖</p>
+        <div id="countdown" class="animate__animated animate__fadeInUp animate__delay-2s"></div>
+    </header>
+
+    <section id="wishes" class="animate__animated animate__zoomIn animate__delay-1s">
+        <h2>💌 Birthday Wishes</h2>
+        <div id="messageList"></div>
+        <textarea id="messageInput" placeholder="Write your lovely wish here..."></textarea>
+        <button id="submitMessage">Send Wish</button>
+    </section>
+
+    <section id="photoUpload" class="animate__animated animate__fadeInLeft animate__delay-2s">
+        <h2>📸 Upload a Memory</h2>
+        <input type="file" id="photoInput" accept="image/*">
+        <button id="uploadPhoto">Upload</button>
+        <div id="photoGallery"></div>
+    </section>
+
+    <section id="guestbook" class="animate__animated animate__fadeInRight animate__delay-3s">
+        <h2>📝 Guestbook</h2>
+        <div id="guestbookList"></div>
+        <textarea id="guestbookInput" placeholder="Leave a cute message for Miznah..."></textarea>
+        <button id="submitGuestbook">Submit</button>
+    </section>
+
+    <footer class="animate__animated animate__fadeInUp animate__delay-4s">
+        <p>Made by Haider</p>
+    </footer>
+
+    <!-- Popup Birthday Card -->
+    <div id="popupCard" class="popup-card animate__animated animate__bounceIn">
+        <div class="popup-content">
+            <h2>🎉 Happy Birthday Miznah! 🎂</h2>
+            <p>Wishing you all the love, laughter, and magic in the world today and always. 💖</p>
+            <img src="https://t3.ftcdn.net/jpg/04/42/62/12/360_F_442621279_PYhie13pVGcSSYTAm1eqlC3e7Lcy0oNV.jpg" alt="Birthday GIF">
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <audio id="bgMusic" autoplay loop>
+  <source src="happy-birthday-334876.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+<!-- Firebase SDK -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkz4PQrN8jYqA4TzAdeosW_jfJO5wjXCA",
+    authDomain: "birthday-c1189.firebaseapp.com",
+    projectId: "birthday-c1189",
+    storageBucket: "birthday-c1189.firebasestorage.app",
+    messagingSenderId: "665261107966",
+    appId: "1:665261107966:web:aff1b7a7c21fa7a851d3af",
+    measurementId: "G-6LLKM749PE"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</script>
+<script type="module">
+
+   function saveMessage(msg) {
+    db.ref("messages").push({ text: msg, timestamp: Date.now() });
+  }
+
+  function saveGuestbook(msg) {
+    db.ref("guestbook").push({ text: msg, timestamp: Date.now() });
+  }
+</script>
+
+
+
+</body>
+</html>
